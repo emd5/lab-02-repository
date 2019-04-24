@@ -11,6 +11,7 @@ function Image(image_url, title, description, keyword, horns){
   this.horns = horns;
   imageArray.push(this);
 }
+
 const imageArray = [];
 
 // This loads the image data
@@ -23,19 +24,26 @@ function loadData(){
   }).then(potato => 
     potato.forEach(element => {
       displayImages(element.image_url, element.title);
+    })).then( () => 
+    imageArray.forEach(element => {
+      displayOptions(element.keyword);
     }))
 }
 
+// This displays images 
 function displayImages(image_url, title){
-  console.log(image_url + ' | ' + title);
   $('ul').append(`<li><img src="${image_url}" alt="${title}" /></li>`);
 }
 
 
-
-
+// Create for each to retrieve keyword and append it to the option element
+function displayOptions(keyword){
+  console.log("display options activated");
+  $('select').append(`<option>${keyword}</option>`);
+}
 //Driver
 loadData();
+
 
 
 

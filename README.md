@@ -21,15 +21,16 @@ Estimate of time needed to complete: 45 minutes
 
 Start time: 9:20am
 
-Finish time: _____
+Finish time: 11:00am
 
-Actual time needed to complete: _____
+Actual time needed to complete: 1 hr 40 minutes
 
 
-How are we implementing it?
-Use AJAX, specifically $.get(), to read the provided JSON file.
-Each object should become a new instance of a constructor function. Refer to the data to determine the necessary properties.
-Use jQuery to make a copy of the HTML template of the photo component. For each object, fill in the duplicated template with its properties, then append the copy to the DOM.
+How are we implementing it? 
+
+- Use AJAX, specifically $.get(), to read the provided JSON file.
+- Each object should become a new instance of a constructor function. Refer to the data to determine the necessary properties.
+- Use jQuery to make a copy of the HTML template of the photo component. For each object, fill in the duplicated template with its properties, then append the copy to the DOM.
 
 
 ### Feature #2: Filter images
@@ -45,7 +46,7 @@ Number and name of feature: Filter Images
 
 Estimate of time needed to complete: 1 hr 30 minutes
 
-Start time: _____
+Start time: 11:00am
 
 Finish time: _____
 
