@@ -25,13 +25,11 @@ Finish time: 11:00am
 
 Actual time needed to complete: 1 hr 40 minutes
 
-
 How are we implementing it? 
 
 - Use AJAX, specifically $.get(), to read the provided JSON file.
 - Each object should become a new instance of a constructor function. Refer to the data to determine the necessary properties.
 - Use jQuery to make a copy of the HTML template of the photo component. For each object, fill in the duplicated template with its properties, then append the copy to the DOM.
-
 
 ### Feature #2: Filter images
 
@@ -52,12 +50,10 @@ Finish time: 11:53am
 
 Actual time needed to complete: 53 minutes
 
-
 How are we implementing it?
 
 - Create a <select> element which contains unique <option> elements extracted dynamically from the JSON file, one for each keyword.
 - Use an event handler to respond when the user chooses an option from the select menu. Hide all of the images, then show those whose keyword matches the option chosen.
-
 
 ## Feature #3: Style the application
 
@@ -69,20 +65,19 @@ Why are we implementing this feature?
   - When the user navigates to the home page
   - Then the images should be displayed in rows across the screen
 
-
 Number and name of feature: Styling/ Clean UI
 
 Estimate of time needed to complete: 1 hr
 
-Start time: _____
+Start time: 1:00pm
 
-Finish time: _____
+Finish time: 1:20pm
 
-Actual time needed to complete: _____
+Actual time needed to complete: 20 minutes
 
 How are we implementing it?
-Style your application using floats.
-Utilize at least one Google font.
+  - Style your application using floats.
+  - Utilize at least one Google font.
 
 ## Stretch Goal: Sort the images
 
