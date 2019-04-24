@@ -48,9 +48,9 @@ Estimate of time needed to complete: 1 hr 30 minutes
 
 Start time: 11:00am
 
-Finish time: 
+Finish time: 11:53am
 
-Actual time needed to complete: 
+Actual time needed to complete: 53 minutes
 
 
 How are we implementing it?
@@ -63,11 +63,11 @@ How are we implementing it?
 
 Why are we implementing this feature?
 
-As a user, I want a simple, clean looking UI so that my photo gallery clearly displays the images in a grid like pattern.
-What are we going to implement?
-Given that a user opens the application in the browser
-When the user navigates to the home page
-Then the images should be displayed in rows across the screen
+- As a user, I want a simple, clean looking UI so that my photo gallery clearly displays the images in a grid like pattern.
+- What are we going to implement?
+  - Given that a user opens the application in the browser
+  - When the user navigates to the home page
+  - Then the images should be displayed in rows across the screen
 
 
 Number and name of feature: Styling/ Clean UI

@@ -37,11 +37,13 @@ function displayImages(image_url, title){
 
 // Create for each to retrieve keyword and append it to the option element onto the page
 function displayOptions(keyword){
+  // check if select does not exists, do something
   $('select').append(`<option>${keyword}</option>`);
 }
 
+// Filter based on option selection
 function filterImages(keyword){
-  console.log(keyword);
+  $('ul').empty();
   imageArray.forEach(element => {
     if(element.keyword === keyword){
       displayImages(element.image_url, element.title);
@@ -49,23 +51,17 @@ function filterImages(keyword){
   })
 }
 
-
 //Eventhandler function
-
 function optionHandler(event){
-  console.log(event.data);
   console.log($("option:selected").text());
+  filterImages($("option:selected").text());
 }
 
-//Eventhandler 
-
+//Eventlisteners
 $('select').off();
 $('select').on('change', optionHandler);
-// filterImages($('option').text())
 
-
-
-//Driver
+// Driver
 loadData();
 
 

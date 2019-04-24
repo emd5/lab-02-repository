@@ -1,0 +1,22 @@
+/* layouts.css */
+
+header{
+  padding-top: 25px;
+  height: 100px;
+  background-color: firebrick;
+  text-align: center;
+  font-size: 40px;
+}
+
+main{
+  text-align: center;
+  height: 100vh;
+}
+
+select{
+  margin: 40px;
+  font-size: 30px;
+  background-color: seagreen;
+}
+
+
