@@ -31,6 +31,9 @@ function displayImages(image_url, title){
   $('ul').append(`<li><img src="${image_url}" alt="${title}" /></li>`);
 }
 
+
+
+
 //Driver
 loadData();
 
