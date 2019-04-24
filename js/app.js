@@ -2,14 +2,9 @@
 
 console.log('app.js linked');
 
-// Global variables
-
-
-
-
 // An image constructor
-function Image(imageUrl, title, description, keyword, horns){
-  this.imageUrl = imageUrl;
+function Image(image_url, title, description, keyword, horns){
+  this.image_url = image_url;
   this.title = title;
   this.description = description;
   this.keyword = keyword;
@@ -27,26 +22,18 @@ function loadData(){
     });
   }).then(potato => 
     potato.forEach(element => {
-      displayImages(element.imageUrl, element.title)
-    }))   
+      displayImages(element.image_url, element.title);
+    }))
 }
 
-
-function displayImages(imageUrl, title){
-  console.log(imageUrl + ' | ' + title);
-  $('ul').append(`<li><img src="${imageUrl}" alt="${title}" /></li>`);
+function displayImages(image_url, title){
+  console.log(image_url + ' | ' + title);
+  $('ul').append(`<li><img src="${image_url}" alt="${title}" /></li>`);
 }
-
-
 
 //Driver
-console.log("image array" + imageArray);
-
 loadData();
 
-// displayImages(imageArray[0].imageUrl, imageArray[0].title);
-
-// $.loadData().then(displayImages(imageArray[0].imageUrl, imageArray[0].title));
 
 
 
