@@ -30,19 +30,45 @@ function loadData(){
     }))
 }
 
-// This displays images 
+// This displays images onto the page
 function displayImages(image_url, title){
   $('ul').append(`<li><img src="${image_url}" alt="${title}" /></li>`);
 }
 
-
-// Create for each to retrieve keyword and append it to the option element
+// Create for each to retrieve keyword and append it to the option element onto the page
 function displayOptions(keyword){
-  console.log("display options activated");
   $('select').append(`<option>${keyword}</option>`);
 }
+
+function filterImages(keyword){
+  console.log(keyword);
+  imageArray.forEach(element => {
+    if(element.keyword === keyword){
+      displayImages(element.image_url, element.title);
+    }
+  })
+}
+
+
+//Eventhandler function
+
+function optionHandler(event){
+  console.log(event.data);
+  console.log($("option:selected").text());
+}
+
+//Eventhandler 
+
+$('select').off();
+$('select').on('change', optionHandler);
+// filterImages($('option').text())
+
+
+
 //Driver
 loadData();
+
+
 
 
 

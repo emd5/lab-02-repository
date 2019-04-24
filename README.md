@@ -48,12 +48,13 @@ Estimate of time needed to complete: 1 hr 30 minutes
 
 Start time: 11:00am
 
-Finish time: _____
+Finish time: 
 
-Actual time needed to complete: _____
+Actual time needed to complete: 
 
 
 How are we implementing it?
+
 - Create a <select> element which contains unique <option> elements extracted dynamically from the JSON file, one for each keyword.
 - Use an event handler to respond when the user chooses an option from the select menu. Hide all of the images, then show those whose keyword matches the option chosen.
 
