@@ -54,7 +54,7 @@ function filterImages(keyword){
   $('ul').empty();
   imageArray.forEach(element => {
     if(element.keyword === keyword){
-      displayImages(element.image_url, element.title);
+      displayImages(element);
     }
   })
 }
