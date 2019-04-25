@@ -61,8 +61,8 @@ function filterImages(keyword){
 
 //Eventhandler function
 function optionHandler(event){
-  console.log($("option:selected").text());
-  filterImages($("option:selected").text());
+  console.log($('option:selected').text());
+  filterImages($('option:selected').text());
 }
 
 //Eventlisteners
