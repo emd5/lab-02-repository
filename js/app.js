@@ -54,6 +54,7 @@ function displayOptions(keyword){
 // Filter based on option selection
 function filterImages(keyword){
   $('ul').empty();
+  $('select').empty();
   imageArray.forEach(element => {
     if(element.keyword === keyword){
       displayImages(element.image_url, element.title);
@@ -68,7 +69,9 @@ function optionHandler(){
 }
 
 function buttonHandler (){
-  //clear and load data
+  //clear html elements
+  $('ul').empty();
+
   loadData(page2Data);
 }
 
