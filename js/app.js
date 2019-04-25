@@ -2,6 +2,8 @@
 
 console.log('app.js linked');
 
+let optionsArray = [];
+
 // An image constructor
 function Image(image_url, title, description, keyword, horns){
   this.image_url = image_url;
@@ -21,10 +23,10 @@ function loadData(){
       new Image(element.image_url, element.title, element.description, element.keyword, element.horns);
       return imageArray;
     });
-  }).then(potato => 
+  }).then(potato =>
     potato.forEach(element => {
       displayImages(element.image_url, element.title);
-    })).then( () => 
+    })).then( () =>
     imageArray.forEach(element => {
       displayOptions(element.keyword);
     }))
@@ -37,7 +39,13 @@ function displayImages(image_url, title){
 
 // Create for each to retrieve keyword and append it to the option element onto the page
 function displayOptions(keyword){
+
+  if (optionsArray.includes(keyword)){
+    console.log('Duplicate found');
+    return;
+  }
   // check if select does not exists, do something
+  optionsArray.push(keyword);
   $('select').append(`<option>${keyword}</option>`);
 }
 
