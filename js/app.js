@@ -3,6 +3,8 @@
 console.log('app.js linked');
 
 let optionsArray = [];
+let page1Data = './data/page-1.json';
+let page2Data = './data/page-2.json';
 
 // An image constructor
 function Image(image_url, title, description, keyword, horns){
@@ -17,8 +19,8 @@ function Image(image_url, title, description, keyword, horns){
 const imageArray = [];
 
 // This loads the image data
-function loadData(){
-  $.get('./data/page-1.json' , data => {
+function loadData(incomingData){
+  $.get( incomingData, data => {
     data.forEach( (element) => {
       new Image(element.image_url, element.title, element.description, element.keyword, element.horns);
       return imageArray;
@@ -60,17 +62,24 @@ function filterImages(keyword){
 }
 
 //Eventhandler function
-function optionHandler(event){
+function optionHandler(){
   console.log($('option:selected').text());
   filterImages($('option:selected').text());
+}
+
+function buttonHandler (){
+  //clear and load data
+  loadData(page2Data);
 }
 
 //Eventlisteners
 $('select').off();
 $('select').on('change', optionHandler);
 
+$('.paginator').on('click', buttonHandler);
+
 // Driver
-loadData();
+loadData(page1Data);
 
 
 
