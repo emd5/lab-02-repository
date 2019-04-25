@@ -4,7 +4,9 @@ console.log('app.js linked');
 
 let optionsArray = [];
 let page1Data = './data/page-1.json';
+let page1Class = 'page1';
 let page2Data = './data/page-2.json';
+let page2Class = 'page2';
 
 // An image constructor
 function Image(image_url, title, description, keyword, horns){
@@ -54,7 +56,6 @@ function displayOptions(keyword){
 // Filter based on option selection
 function filterImages(keyword){
   $('ul').empty();
-  $('select').empty();
   imageArray.forEach(element => {
     if(element.keyword === keyword){
       displayImages(element.image_url, element.title);
@@ -69,10 +70,34 @@ function optionHandler(){
 }
 
 function buttonHandler (){
-  //clear html elements
   $('ul').empty();
+  $('select').empty();
 
-  loadData(page2Data);
+  //check the current class, then pass the desired class (the other class) to classToggler
+  if($('.paginator').hasClass(page1Class)){
+    classToggler(page2Class);
+  }else if($('.paginator').hasClass(page2Class)){
+    classToggler(page1Class);
+  }
+
+}
+
+function classToggler(desiredClass){
+  if (desiredClass === page1Class){
+    $('.paginator').removeClass(page2Class);
+    $('.paginator').addClass(page1Class);
+    loadData(page1Data);
+  }else if(desiredClass === page2Class){
+    $('.paginator').removeClass(page1Class);
+    $('.paginator').addClass(page2Class);
+    loadData(page2Data);
+  }else {
+    console.log('Data not recognized');
+  }
+
+
+
+    
 }
 
 //Eventlisteners
@@ -82,7 +107,10 @@ $('select').on('change', optionHandler);
 $('.paginator').on('click', buttonHandler);
 
 // Driver
-loadData(page1Data);
+classToggler(page1Class);
+
+
+
 
 
 
