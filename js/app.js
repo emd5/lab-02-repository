@@ -27,7 +27,6 @@ function loadData(incomingData){
     });
   }).then( () =>
     imageArray.forEach(element => {
-      console.log(`Element: ${element.image_url}`);
       displayImages(element);
     })).then( () =>
     imageArray.forEach(element => {
@@ -68,14 +67,11 @@ function optionHandler(){
 function buttonHandler (){
   $('ul').empty();
   $('select').empty();
-
-  //check the current class, then pass the desired class (the other class) to classToggler
   if($('.paginator').hasClass(page1Class)){
     classToggler(page2Class);
   }else if($('.paginator').hasClass(page2Class)){
     classToggler(page1Class);
   }
-
 }
 
 function classToggler(desiredClass){
@@ -93,26 +89,31 @@ function classToggler(desiredClass){
   }
 }
 
+function sortImagesByTitle(){
+  imageArray.sort((a,b) => a.title.localeCompare(b.title));
+  $('ul').empty();
+  imageArray.forEach(element => {
+    displayImages(element);
+  });
+}
+
+function sortImagesByHorns(){
+  imageArray.sort((a,b) => a.horns - b.horns);
+  $('ul').empty();
+  imageArray.forEach(element => {
+    displayImages(element);
+  });
+}
+
 //Eventlisteners
 $('select').off();
 $('select').on('change', optionHandler);
 
 $('.paginator').on('click', buttonHandler);
 
+$('.titleButton').on('click', sortImagesByTitle);
+$('.hornsButton').on('click', sortImagesByHorns);
+
 // Driver
 classToggler(page1Class);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
