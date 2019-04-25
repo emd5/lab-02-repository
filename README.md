@@ -101,11 +101,11 @@ Number and name of feature: Feature 1: Pagination
 
 Estimate of time needed to complete: 1hr 45mins
 
-Start time: _____
+Start time: 9:40am
 
-Finish time: _____
+Finish time: 11:10am
 
-Actual time needed to complete: _____
+Actual time needed to complete: 1 hr 30 mins
 
 ## Feature 2: Templating
 
@@ -128,7 +128,7 @@ Number and name of feature: Feature 2: Templating
 
 Estimate of time needed to complete: 1 hr
 
-Start time: _____
+Start time: 11:10am
 
 Finish time: _____
 

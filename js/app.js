@@ -1,7 +1,5 @@
 'use strict';
 
-console.log('app.js linked');
-
 let optionsArray = [];
 let page1Data = './data/page-1.json';
 let page1Class = 'page1';
@@ -26,20 +24,20 @@ function loadData(incomingData){
   $.get( incomingData, data => {
     data.forEach( (element) => {
       new Image(element.image_url, element.title, element.description, element.keyword, element.horns);
-      return imageArray;
     });
-  }).then(potato =>
-    potato.forEach(element => {
-      displayImages(element.image_url, element.title);
+  }).then( () =>
+    imageArray.forEach(element => {
+      console.log(`Element: ${element.image_url}`);
+      displayImages(element);
     })).then( () =>
     imageArray.forEach(element => {
       displayOptions(element.keyword);
     }))
 }
 
-// This displays images onto the page
-function displayImages(image_url, title){
-  $('ul').append(`<li><img src="${image_url}" alt="${title}" /></li>`);
+function displayImages(object){
+  const liRenderer = Handlebars.compile($('#li-template').html());
+  $('ul').append(liRenderer(object));
 }
 
 // Create for each to retrieve keyword and append it to the option element onto the page
@@ -64,7 +62,6 @@ function filterImages(keyword){
 
 //Eventhandler function
 function optionHandler(){
-  console.log($('option:selected').text());
   filterImages($('option:selected').text());
 }
 
@@ -82,9 +79,7 @@ function buttonHandler (){
 }
 
 function classToggler(desiredClass){
-  console.log(`optionsArray: ${optionsArray}`);
   optionsArray =[];
-  console.log(`imageArray: ${imageArray}`);
   if (desiredClass === page1Class){
     $('.paginator').removeClass(page2Class);
     $('.paginator').addClass(page1Class);
@@ -92,15 +87,10 @@ function classToggler(desiredClass){
   }else if(desiredClass === page2Class){
     $('.paginator').removeClass(page1Class);
     $('.paginator').addClass(page2Class);
-    console.log(`optionsArray: ${optionsArray}`);
     loadData(page2Data);
   }else {
     console.log('Data not recognized');
   }
-
-
-
-    
 }
 
 //Eventlisteners
