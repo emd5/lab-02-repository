@@ -18,10 +18,11 @@ function Image(image_url, title, description, keyword, horns){
   imageArray.push(this);
 }
 
-const imageArray = [];
+let imageArray = [];
 
 // This loads the image data
 function loadData(incomingData){
+  imageArray = [];
   $.get( incomingData, data => {
     data.forEach( (element) => {
       new Image(element.image_url, element.title, element.description, element.keyword, element.horns);
@@ -43,9 +44,7 @@ function displayImages(image_url, title){
 
 // Create for each to retrieve keyword and append it to the option element onto the page
 function displayOptions(keyword){
-
   if (optionsArray.includes(keyword)){
-    console.log('Duplicate found');
     return;
   }
   // check if select does not exists, do something
@@ -83,6 +82,9 @@ function buttonHandler (){
 }
 
 function classToggler(desiredClass){
+  console.log(`optionsArray: ${optionsArray}`);
+  optionsArray =[];
+  console.log(`imageArray: ${imageArray}`);
   if (desiredClass === page1Class){
     $('.paginator').removeClass(page2Class);
     $('.paginator').addClass(page1Class);
@@ -90,6 +92,7 @@ function classToggler(desiredClass){
   }else if(desiredClass === page2Class){
     $('.paginator').removeClass(page1Class);
     $('.paginator').addClass(page2Class);
+    console.log(`optionsArray: ${optionsArray}`);
     loadData(page2Data);
   }else {
     console.log('Data not recognized');
